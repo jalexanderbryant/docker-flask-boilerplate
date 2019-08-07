@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+    nginx: # Handles routing; Routes traffic to the appropriate service
+        restart: 'always' # Critical service, always needs to restart
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./nginx
+        ports:
+            - '3000:80'
+    
+    api: # server
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./server
+        volumes:
+            - ./server:/app
+        command: > 
+            gunicorn -b 0.0.0.0:8000
+            --access-logfile - 
+            --reload
+            "app.app:create_app()"
+
+    client: # Treat the UI as a separate service.
+        build: 
+            dockerfile: Dockerfile.dev
+            context: ./client
+        volumes:
+            - /app/node_modules
+            - ./client:/app
