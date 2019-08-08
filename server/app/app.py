@@ -11,7 +11,7 @@ def create_app():
     app.config.from_object('config.settings')
     app.config.from_pyfile('settings.py', silent=True)
 
-    @app.route('/')
+    @app.route('/hello')
     def index():
         """
         Render a Hello World response.
