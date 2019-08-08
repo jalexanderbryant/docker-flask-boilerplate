@@ -1,3 +1,3 @@
 DEBUG = True
 
-HELLO = 'Hello, World! - Main Config'
+HELLO = 'Hello, World! - (Find this string in the Main Config)'
