@@ -5,7 +5,7 @@ import axios from 'axios';
 class App extends Component
 {
     state = {
-        greeting: "Hi!"
+        greeting: "Hi! - Greeting not set from API"
     };
 
     componentDidMount(){

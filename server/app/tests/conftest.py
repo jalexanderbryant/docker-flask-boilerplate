@@ -10,7 +10,8 @@ def app():
     """
     params = {
         'DEBUG': False,
-        'TESTING': True
+        'TESTING': True,
+        'SERVER_NAME': 'localhost:8000'
     }
 
     _app = create_app(settings_override=params)
