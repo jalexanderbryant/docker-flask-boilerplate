@@ -7,7 +7,7 @@ services:
             dockerfile: Dockerfile.dev
             context: ./nginx
         ports:
-            - '3000:80'
+            - '8080:80'
     
     api: # server
         build:
@@ -20,6 +20,8 @@ services:
             --access-logfile - 
             --reload
             "app.app:create_app()"
+        environment:
+            PYTHONUNBUFFERED: 'true'
 
     client: # Treat the UI as a separate service.
         build: 

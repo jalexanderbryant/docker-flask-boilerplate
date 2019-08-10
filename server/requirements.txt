@@ -12,3 +12,6 @@ flake8==2.5.4
 
 # Command line interface
 click==7.0
+
+# Static Analysis
+bandit
