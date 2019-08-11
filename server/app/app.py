@@ -1,5 +1,10 @@
 from flask import Flask
 from app.blueprints.page import page
+from app.extensions import (
+    debug_toolbar,
+    db
+)
+
 
 def create_app(settings_override=None):
     """
@@ -15,16 +20,36 @@ def create_app(settings_override=None):
     if settings_override:
         app.config.update(settings_override)
 
+    # Register App components via blueprints
     app.register_blueprint(page)
+
+    # Initialize Extensions
+    extensions(app)
+
 
     @app.route('/hello')
     def index():
         """
         Render a Hello World response.
+        For test purposes only; Remove this route and function when you begin
+        development.
 
         :return Flask response
         """
 
-        return app.config['HELLO']
+        return app.config['PGURI']
 
     return app
+
+def extensions(app):
+    """
+    Register extenstions on the application instance
+
+    :param app: Flask Application instance
+    :return: None
+    """
+
+    debug_toolbar.init_app(app)
+    db.init_app(app)
+
+    return None

@@ -15,3 +15,10 @@ click==7.0
 
 # Static Analysis
 bandit
+
+# Debuggging toolbar
+flask-debugtoolbar==0.10.1
+
+# Data
+psycopg2==2.7.1
+Flask-SQLAlchemy
