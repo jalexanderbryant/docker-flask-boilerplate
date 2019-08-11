@@ -37,7 +37,7 @@ def create_app(settings_override=None):
         :return Flask response
         """
 
-        return app.config['PGURI']
+        return app.config['HELLO']
 
     return app
 
