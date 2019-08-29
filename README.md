@@ -6,3 +6,7 @@ Containers allow me to create applications in the way I visualize them mentally.
 
 # Disclaimer:
 This template was created as I learned containerization and their best practices; I am still adding improvements over time. In the meantime, use at your own discretion.
+
+
+TODOS:
+- Handle CSRF between React and Flask form submissions

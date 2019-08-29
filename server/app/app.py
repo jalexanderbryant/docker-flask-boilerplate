@@ -1,8 +1,10 @@
 from flask import Flask
 from app.blueprints.page import page
+from app.blueprints.contact import contact
 from app.extensions import (
-    debug_toolbar,
-    db
+    db,
+    mail,
+    csrf
 )
 
 
@@ -22,6 +24,7 @@ def create_app(settings_override=None):
 
     # Register App components via blueprints
     app.register_blueprint(page)
+    app.register_blueprint(contact)
 
     # Initialize Extensions
     extensions(app)
@@ -49,7 +52,8 @@ def extensions(app):
     :return: None
     """
 
-    debug_toolbar.init_app(app)
+    mail.init_app(app)
     db.init_app(app)
+    #csrf.init_app(app)
 
     return None
