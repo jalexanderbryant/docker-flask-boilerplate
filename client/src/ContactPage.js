@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import App from './App';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -28,8 +29,18 @@ export default class ContactPage extends Component
     }
 
     handleSubmit(event){
-        alert('A message was submitted from: ' + this.state.username);
+        //alert('A message was submitted from: ' + this.state.username);
         event.preventDefault();
+
+        // Make a new KeyValue Pairdd
+        var data = new FormData(event.target);
+
+
+        // Post form Data
+        fetch('/api/contact', {
+            method: 'POST',
+            body: data,
+        });
     }
 
 
@@ -43,14 +54,6 @@ export default class ContactPage extends Component
 
                 <form onSubmit={ this.handleSubmit }>
                     <div> 
-                        <label>
-                            Name:
-                            <input type="text"
-                                name="username"
-                                value={this.state.username}
-                                onChange={this.handleChange} />
-                        </label>
-                        <br />
                         
                         <label>
                             Email:

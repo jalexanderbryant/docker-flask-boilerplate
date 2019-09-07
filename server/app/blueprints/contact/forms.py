@@ -1,12 +1,16 @@
-from flask_wtf import Form
-from wtforms import TextAreaField
-from wtforms_components import EmailField
-from wtforms.validators import DataRequired, Length
 
+class ContactForm(object):
+    # Contact Form
+    #   Email - Sender's email address
+    #   Message - Message from the sender
 
-class ContactForm(Form):
-    email = EmailField("What's your e-mail address?",
-                       [DataRequired(), Length(3, 254)])
-    message = TextAreaField("What's your question or issue?",
-                            [DataRequired(), Length(1, 8192)])
+    def __validate_email(self):
+        pass
 
+    def __validate_message(self):
+        pass
+
+    def validate_on_submit(self):
+        self.__validate_email()
+        self.__validate_message()
+        return True
