@@ -27,6 +27,5 @@ Flask-SQLAlchemy
 redis==2.10.5
 celery==3.1.23
 
-# Forms
-Flask-WTF==0.9.5
-WTForms-Components==0.9.7
+# Security
+flask-seasurf

@@ -15,6 +15,9 @@ PGURI = "postgresql://%s:%s@%s:%s/%s" %(PGUSER,
                                           PGPASSWORD,PGHOST,PGPORT,PGDATABASE)
 
 
+# Flask-Seasurf: Cross Site Request Forgery Protection
+CSRF_DISABLE = False
+
 # Flask-Mail.
 MAIL_DEFAULT_SENDER = 'contact@local.host'
 MAIL_SERVER = 'smtp.gmail.com' # Mail server address

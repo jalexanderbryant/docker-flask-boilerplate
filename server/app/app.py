@@ -4,6 +4,7 @@ from app.blueprints.contact import contact
 from app.extensions import (
     db,
     mail,
+    csrf
 )
 
 
@@ -53,5 +54,6 @@ def extensions(app):
 
     mail.init_app(app)
     db.init_app(app)
+    csrf.init_app(app)
 
     return None
