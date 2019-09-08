@@ -11,6 +11,21 @@ services:
     postgres:
         image: 'postgres:latest'
 
+    redis:
+        image: 'redis:latest'
+
+
+    celery:
+        build:
+            context: ./server
+            dockerfile: Dockerfile.dev 
+        command: celery worker -l info -A app.blueprints.contact.tasks
+        env_file:
+            - server/server.env
+        volumes:
+            - .:/server/app
+
+
     api: # server
         restart: 'on-failure'
         build:
