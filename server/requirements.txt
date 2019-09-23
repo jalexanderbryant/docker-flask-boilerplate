@@ -5,7 +5,7 @@ werkzeug==0.15
 # Application server (for both dev and prod)
 gunicorn
 
-# Testing + Static Analysis
+# Testing Code Coverage
 pytest
 pytest-cov
 flake8==2.5.4
@@ -13,12 +13,19 @@ flake8==2.5.4
 # Command line interface
 click==7.0
 
-# Static Analysis
+# Static Security Analysis
 bandit
 
-# Debuggging toolbar
-flask-debugtoolbar==0.10.1
+# Extensions
+Flask-Mail==0.9.1
 
-# Data
+# Data Modeling and ORM
 psycopg2==2.7.1
 Flask-SQLAlchemy
+
+# Data and workers
+redis==2.10.5
+celery==3.1.23
+
+# Security
+flask-seasurf
